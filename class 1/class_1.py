@@ -150,24 +150,121 @@
 # s1.greet()            
 
 
-class BankAccount:
+# class BankAccount:
+#     def __init__(self, accountHolder, balance):
+#         self.accountHolder = accountHolder
+#         self.balance = balance
+
+#     def deposit(self, amount):
+#         self.balance += amount
+
+#     def withdraw(self, withAmount):
+#         if self.balance >= withAmount:
+#             self.balance -= withAmount
+#         else:
+#             print('insufficient balance bhai')
+
+#     def checkAmount(self):
+#         print('hey', self.accountHolder, 'your amount is', self.balance)        
+
+# account = BankAccount('majid', 1000)
+# account.deposit(1000)
+# account.withdraw(2500)    
+# account.checkAmount()     
+ 
+
+# class ATM :
+#    def __init__(self, accountHolder, balance):
+#     self.accountHolder = accountHolder
+#     self.balance = balance
+
+#    def checkBalance(self):
+#     print('your balance is', self.balance)
+
+#    def deposit(self, amount):
+#      self.balance += amount
+#      print('deposited :', amount)
+
+#    def withdraw(self, amount):
+#      if self.balance >= amount:
+#         self.balance -= amount
+#      else:
+#        print('insufficient balance')
+
+# atm = ATM('majid', 1000)       
+
+# while True:
+#   print('\n1. Check Balance')
+#   print('2. Deposit')
+#   print('3. Withdraw')
+#   print('4. Exit')
+
+
+#   choice = input('Enter choice.')
+
+#   if choice == '1':
+#     atm.checkBalance()
+
+#   elif choice == '2':
+#     amt = int(input('Enter amount :'))
+#     atm.deposit(amt)
+
+#   elif choice == '3':
+#     amt = int(input('Enter amount :'))
+#     atm.withdraw(amt)
+
+#   elif choice == '4':
+#     print('Thank u for using atm')
+#     break
+
+#   else:
+#     print('invalid choice')     
+
+
+class ATM : 
     def __init__(self, accountHolder, balance):
         self.accountHolder = accountHolder
         self.balance = balance
 
+    def checkBalance(self):
+        print('your balance is :', self.balance)
+
     def deposit(self, amount):
         self.balance += amount
+        print('your balance is :', self.balance)
 
-    def withdraw(self, withAmount):
-        if self.balance >= withAmount:
-            self.balance -= withAmount
+
+    def withdraw(self, amount):    
+        if self.balance >= amount:
+           self.balance -= amount 
         else:
-            print('insufficient balance bhai')
+           print('insufficient balance')
 
-    def checkAmount(self):
-        print('hey', self.accountHolder, 'your amount is', self.balance)        
+atm = ATM('Majid', 1000)
 
-account = BankAccount('majid', 1000)
-account.deposit(1000)
-account.withdraw(2500)    
-account.checkAmount()            
+while True:
+    print('\n1. Check Balance')
+    print('2. Deposit')
+    print('3. Withdraw Cash')
+    print('4. Exit')
+
+    choice = input('Plz enter number :')
+
+    if choice == '1':
+        atm.checkBalance()
+
+    elif choice == '2':
+        amt = int(input('enter amount to deposit'))
+        atm.deposit(amt)
+
+    elif choice == '3':
+         amt = int(input('enter amount to withdraw'))       
+         atm.withdraw(amt)
+
+    elif choice == '4':
+         print('thank you for using ATM')
+         break
+    
+    else:
+        print('invalid number selected')   
+           
