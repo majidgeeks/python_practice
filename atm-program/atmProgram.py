@@ -2,30 +2,35 @@
 class ATM : 
     def __init__(self, accountHolder, balance):
         self.accountHolder = accountHolder
-        self.balance = balance
+        self.__balance = balance
 
     def checkBalance(self):
-        print('your balance is :', self.balance)
+        print('your balance is :', self.__balance)
 
     def deposit(self, amount):
         if amount < 0 :
             print('plz enter valid amount')
         else :    
-         self.balance += amount
-         print('your balance is :', self.balance)
+         self.__balance += amount
+         print('your balance is :', self.__balance)
 
 
     def withdraw(self, amount): 
         if amount < 0 :
             print('plz enter valid amount')   
-        elif self.balance >= amount:
-           self.balance -= amount 
-           print('your balance is :', self.balance)
+        elif self.__balance >= amount:
+           self.__balance -= amount 
+           print('your balance is :', self.__balance)
         else:
            print('insufficient balance')
 
-atm = ATM('Majid', 1000)
+    def __str__(self):
+        return f"Account Holder : {self.accountHolder} \n Balance : {self.__balance}"       
 
+atm = ATM('Majid', 1000)
+# atm.__balance = 100000
+# print(atm)
+# print(atm.__balance)
 while True:
     print('\n1. Check Balance')
     print('2. Deposit')
